@@ -5,21 +5,46 @@ import { getGistForUser } from '../services/gistService'
 
 const Search = () => {
 
-  const [username, setUsername] = useState('');
+  // const [username, setUsername] = useState('');
+  // console.log(username)
+  // useEffect(() => {
+  //   const filterUsername = () => {
+  //     try {
+  //       if (username)
+  //         getGistForUser(username)
+  //           .then(details => console.log(details, 'details'))
+  //     } catch (err) {
+  //       console.log(err)
+  //     }
+  //   }
+  //   filterUsername()
 
+  // }, [])
+
+  const [list, setList] = useState([]);
+
+  async function fetchRepos() {
+    await octokit.repos
+      .listForUser({
+        username: 'abhinav-anshul',
+      })
+      .then((details) => {
+        setList((prevState) => {
+          prevState.push(details.data[0].name);
+          return prevState;
+        });
+      });
+
+    console.log('List Array', list);
+    console.log([...list]);
+  }
 
   useEffect(() => {
-    const chek = async () => {
-      console.log(username, 'slkdj')
-      if (username) {
-        const data = await getGistForUser(username)
+    (async () => {
+      await fetchRepos();
+    })();
+  }, []);
 
-      }
-      // console.log(data, 'dfaf')
-    }
-    chek()
-
-  }, [username])
 
 
   return (
