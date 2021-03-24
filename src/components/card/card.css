@@ -6,7 +6,7 @@
   display: flex;
   border-bottom: 1px solid lightgray;
   flex: 1;
-  padding: 10px;
+  /* padding: 10px; */
   flex-direction: column;
 }
 .card__header {
@@ -47,4 +47,11 @@
 }
 .card__body__left__span {
   padding-left: 5%;
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper {
+    max-width: 100%;
+    margin: auto;
+  }
 }

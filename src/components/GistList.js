@@ -3,11 +3,11 @@ import Card from '../components/card/card'
 
 function GistList({ currentArrayGist, fiteredGist }) {
 
+
     return (
         <div>
-            {fiteredGist ?
-
-                fiteredGist.map((v, i) => {
+            {fiteredGist == '' ?
+                currentArrayGist.map((v, i) => {
                     return <div key={i}>
                         <Card key={i}
                             updatedAt={v.updated_at}
@@ -18,7 +18,7 @@ function GistList({ currentArrayGist, fiteredGist }) {
                     </div>
                 })
                 :
-                currentArrayGist.map((v, i) => {
+                fiteredGist.map((v, i) => {
                     return <div key={i}>
                         <Card key={i}
                             updatedAt={v.updated_at}
@@ -32,6 +32,5 @@ function GistList({ currentArrayGist, fiteredGist }) {
         </div>
     )
 }
-
 export default GistList
 

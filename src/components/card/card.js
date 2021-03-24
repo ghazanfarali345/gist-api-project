@@ -5,7 +5,7 @@ import CodeIcon from '@material-ui/icons/Code';
 import GradeIcon from '@material-ui/icons/Grade';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import img1 from '../../asset/myImage.jpg'
+// import img1 from '../../asset/myImage.jpg'
 
 
 function card({ updatedAt, createdAt, name, img }) {
