@@ -5,7 +5,7 @@ import Loading from './Spinner/Spinner'
 import Pagination from './Pagination/Pagination'
 import GistList from './GistList'
 
-const Gist = () => {
+const Gist = ({ fiteredGist }) => {
     const [dataArray, setDataArray] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
@@ -44,7 +44,7 @@ const Gist = () => {
 
     return <div className="wrapper">
         {isLoading ? <Loading /> : <>
-            <GistList currentArrayGist={currentArrayGist} />
+            <GistList currentArrayGist={currentArrayGist} fiteredGist={fiteredGist} />
             <Pagination
                 postsPerPage={gistPerPage}
                 totalPosts={dataArray?.length}

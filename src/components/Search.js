@@ -1,58 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Octicon from 'react-octicon'
-import { getGistForUser } from '../services/gistService'
 
-const Search = () => {
-
-  // const [username, setUsername] = useState('');
-  // console.log(username)
-  // useEffect(() => {
-  //   const filterUsername = () => {
-  //     try {
-  //       if (username)
-  //         getGistForUser(username)
-  //           .then(details => console.log(details, 'details'))
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   }
-  //   filterUsername()
-
-  // }, [])
-
-  const [list, setList] = useState([]);
-
-  async function fetchRepos() {
-    await octokit.repos
-      .listForUser({
-        username: 'abhinav-anshul',
-      })
-      .then((details) => {
-        setList((prevState) => {
-          prevState.push(details.data[0].name);
-          return prevState;
-        });
-      });
-
-    console.log('List Array', list);
-    console.log([...list]);
-  }
-
-  useEffect(() => {
-    (async () => {
-      await fetchRepos();
-    })();
-  }, []);
-
-
+const Search = ({ onChange }) => {
 
   return (
     <Wrapper>
       <InputBox>
         <Octicon name="search" />
         <Input placeholder="Search Gists for the username"
-          onChange={(e) => setUsername(e.target.value)} />
+          onChange={onChange} />
       </InputBox>
     </Wrapper>
   )
